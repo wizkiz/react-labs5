@@ -23,9 +23,9 @@ export default class PlayerOne extends React.Component {
     	    <h1 style={style2}>Player Two</h1>
 			<p style={style2}>Name: {this.props.name}</p>
         	<p style={style2}>Played times: 3</p>
-        	<button type="button" style={buttonStyle}>
-				Play
-			</button>     
+			<button onClick={this.props.buttonHandler} type="button" style={buttonStyle} disabled={this.props.isPlaying} >
+				{this.props.isPlaying ? "This player is playing now" : "Play"}
+			</button>    
       </div>
     );
 

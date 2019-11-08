@@ -9,6 +9,8 @@ export default class GameAdmin extends React.Component {
 		this.state = {
 		  playerOneName: null,
 		  playerTwoName: null,
+		  playerOneIsPlaying: false,
+		  playerTwoIsPlaying: false
 		};
 	  }
 
@@ -24,6 +26,21 @@ export default class GameAdmin extends React.Component {
 		});
 	};
 
+	handlerPlayerOneButton = () => {
+		this.setState(prevState => ({
+			playerOneIsPlaying: !prevState.playerOneIsPlaying,
+			playerTwoIsPlaying: !!prevState.playerOneIsPlaying
+		}));
+	};
+	
+	handlerPlyerTwoButton = () => {
+		this.setState(prevState => ({
+			playerTwoIsPlaying: !prevState.playerTwoIsPlaying,
+			playerOneIsPlaying: !!prevState.playerTwoIsPlaying
+		}));
+	};
+	
+
   	render() {
 		const style1 = {
 			marginLeft: "1%",
@@ -34,17 +51,21 @@ export default class GameAdmin extends React.Component {
    		const content = (
      	 <div>
      	 	<PlayerOne
-			    name={this.state.playerOneName}
+				name={this.state.playerOneName}
+				buttonHandler={this.handlerPlayerOneButton}
+				isPlaying={this.state.playerOneIsPlaying}
 			/>
 			<br />
        		<PlayerTwo
-				name={this.state.playerTwoName}   
+				name={this.state.playerTwoName}
+				buttonHandler={this.handlerPlyerTwoButton}
+				isPlaying={this.state.playerTwoIsPlaying}
 			/>
      	 	<br/>
        	 	<label>
        	   		Set P1 name
 				<input onChange={this.handlerPlayerOneName} style={style1}/>
-       	 	</label>
+       	 	</label>	
 			<br />
        		<label>
        	   		Set P2 name
