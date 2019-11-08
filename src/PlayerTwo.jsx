@@ -21,7 +21,7 @@ export default class PlayerTwo extends React.Component {
     const content = (
       <div style={style1} float="right">
         <h1 style={style2}>Player Two</h1>
-        <p style={style2}>Name: P2 Name</p>
+        <p style={style2}>Name: {this.props.name}</p>
         <p style={style2}>Played times: 4</p>
         <button type="button" style={buttonStyle}>
 					This player is now playing
