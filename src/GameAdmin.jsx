@@ -10,7 +10,9 @@ export default class GameAdmin extends React.Component {
 		  playerOneName: null,
 		  playerTwoName: null,
 		  playerOneIsPlaying: true,
-		  playerTwoIsPlaying: false
+		  playerTwoIsPlaying: false,
+		  playerOneTimes: 1,
+		  playerTwoTimes: 0
 		};
 	  }
 
@@ -31,14 +33,16 @@ export default class GameAdmin extends React.Component {
 	handlerPlayerOneButton = () => {
 		this.setState(prevState => ({
 			playerOneIsPlaying: !prevState.playerOneIsPlaying,
-			playerTwoIsPlaying: !!prevState.playerOneIsPlaying
+			playerTwoIsPlaying: !!prevState.playerOneIsPlaying,
+			playerOneTimes: prevState.playerOneTimes + 1
 		}));
 	};
 	
 	handlerPlyerTwoButton = () => {
 		this.setState(prevState => ({
 			playerTwoIsPlaying: !prevState.playerTwoIsPlaying,
-			playerOneIsPlaying: !!prevState.playerTwoIsPlaying
+			playerOneIsPlaying: !!prevState.playerTwoIsPlaying,
+			playerTwoTimes: prevState.playerTwoTimes + 1
 		}));
 	};
 	
@@ -56,12 +60,14 @@ export default class GameAdmin extends React.Component {
 				name={this.state.playerOneName}
 				buttonHandler={this.handlerPlayerOneButton}
 				isPlaying={this.state.playerOneIsPlaying}
+				times={this.state.playerOneTimes.toString()}
 			/>
 			<br />
        		<PlayerTwo
 				name={this.state.playerTwoName}
 				buttonHandler={this.handlerPlyerTwoButton}
 				isPlaying={this.state.playerTwoIsPlaying}
+				times={this.state.playerTwoTimes.toString()}
 			/>
      	 	<br/>
        	 	<label>
