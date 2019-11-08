@@ -1,7 +1,10 @@
-import React from 'react'
+import React from "react";
+import GameAdmin from "./GameAdmin";
 
 const App = () => (
-  <h1>Minimal React</h1>  
-)
+  <div>
+    <GameAdmin />
+  </div>
+);
 
-export default App
+export default App;
