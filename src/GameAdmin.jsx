@@ -9,7 +9,7 @@ export default class GameAdmin extends React.Component {
 		this.state = {
 		  playerOneName: null,
 		  playerTwoName: null,
-		  playerOneIsPlaying: false,
+		  playerOneIsPlaying: true,
 		  playerTwoIsPlaying: false
 		};
 	  }
@@ -26,6 +26,8 @@ export default class GameAdmin extends React.Component {
 		});
 	};
 
+	//I assume that once given player started playing, we already count it as times player
+	//and we don't have to wait until he finishes his session
 	handlerPlayerOneButton = () => {
 		this.setState(prevState => ({
 			playerOneIsPlaying: !prevState.playerOneIsPlaying,
